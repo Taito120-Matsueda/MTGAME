@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ミニゲーム＆診断アプリ</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- スタート画面 -->
+    <section id="screen-start" class="screen active">
+      <div class="badge">APP TEMPLATE</div>
+      <h1 id="app-title">タイトルをここに入力</h1>
+      <p id="app-desc">簡単な説明文やルールをここに入れます。</p>
+      <button id="btn-start" class="btn-primary">スタート</button>
+    </section>
+
+    <!-- メイン（プレイ・質問）画面 -->
+    <section id="screen-main" class="screen">
+      <div class="progress-bar"><div id="progress-fill"></div></div>
+      <div id="main-content">
+        <h2 id="question-text">質問やゲーム画面がここに出ます</h2>
+        <div id="choices-container" class="choices"></div>
+      </div>
+    </section>
+
+    <!-- 結果画面 -->
+    <section id="screen-result" class="screen">
+      <div class="badge">RESULT</div>
+      <h2 id="result-title">結果タイトル</h2>
+      <p id="result-desc">結果の詳細テキストがここに表示されます。</p>
+      <button id="btn-retry" class="btn-secondary">もう一度遊ぶ</button>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
