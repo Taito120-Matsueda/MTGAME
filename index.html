@@ -24,7 +24,7 @@
       <div class="header-line"></div>
     </header>
 
-    <!-- スタート画面 -->
+    <!-- スタート・難易度選択画面 -->
     <section id="start-screen" class="screen start-screen">
 
       <div class="hero">
@@ -40,33 +40,66 @@
         <p class="eyebrow">WELCOME TO THE MAGIC WORLD</p>
         <h1>夢と魔法の<br>クイズの世界へ</h1>
         <p class="welcome-description">
-          あなたはどれだけ知っている？<br>
           ディズニーの物語に隠された秘密を<br>
-          5つのクイズで解き明かそう。
+          5つのクイズで解き明かそう！
         </p>
       </div>
 
-      <div class="start-info">
-        <div class="info-item">
-          <span class="info-icon">✦</span>
-          <span>全5問</span>
-        </div>
-        <div class="info-item">
-          <span class="info-icon">◇</span>
-          <span>4択クイズ</span>
-        </div>
-        <div class="info-item">
-          <span class="info-icon">♛</span>
-          <span>ランク判定</span>
-        </div>
+      <div class="difficulty-heading">
+        <span class="eyebrow">✦ SELECT YOUR LEVEL ✦</span>
+        <h2>冒険の難易度を選ぼう</h2>
+        <p>あなたのディズニー知識を試してみよう！</p>
       </div>
 
-      <button id="start-btn" class="gold-btn">
+      <div class="difficulty-list">
+
+        <button class="difficulty-card beginner"
+          data-level="beginner" type="button">
+          <span class="level-icon">🌱</span>
+          <span class="level-content">
+            <span class="level-name">初級</span>
+            <span class="level-en">BEGINNER</span>
+            <span class="level-description">有名キャラクター・基本知識</span>
+          </span>
+          <span class="level-arrow">›</span>
+        </button>
+
+        <button class="difficulty-card intermediate"
+          data-level="intermediate" type="button">
+          <span class="level-icon">⭐</span>
+          <span class="level-content">
+            <span class="level-name">中級</span>
+            <span class="level-en">INTERMEDIATE</span>
+            <span class="level-description">映画のストーリー・設定</span>
+          </span>
+          <span class="level-arrow">›</span>
+        </button>
+
+        <button class="difficulty-card advanced"
+          data-level="advanced" type="button">
+          <span class="level-icon">👑</span>
+          <span class="level-content">
+            <span class="level-name">上級</span>
+            <span class="level-en">ADVANCED</span>
+            <span class="level-description">マニア向けトリビア</span>
+          </span>
+          <span class="level-arrow">›</span>
+        </button>
+
+      </div>
+
+      <p id="level-guide" class="level-guide">
+        ✧ 難易度を選択してください ✧
+      </p>
+
+      <button id="start-btn" class="gold-btn" disabled>
         <span>冒険をはじめる</span>
         <span class="btn-arrow">→</span>
       </button>
 
-      <p class="bottom-note">✧ EVERY STORY BEGINS WITH A LITTLE MAGIC ✧</p>
+      <p class="bottom-note">
+        EVERY STORY BEGINS WITH A LITTLE MAGIC
+      </p>
 
     </section>
 
@@ -74,7 +107,10 @@
     <section id="quiz-screen" class="screen quiz-screen" hidden>
 
       <div class="quiz-heading">
-        <span class="eyebrow">YOUR MAGICAL JOURNEY</span>
+        <div>
+          <span class="eyebrow">YOUR MAGICAL JOURNEY</span>
+          <p id="current-level" class="current-level">初級クイズ</p>
+        </div>
         <div class="quiz-count">
           <span id="question-number">01</span>
           <span class="count-divider">/</span>
@@ -96,7 +132,9 @@
       </div>
 
       <div class="question-card">
-        <p class="question-small">QUESTION <span id="question-index">01</span></p>
+        <p class="question-small">
+          QUESTION <span id="question-index">01</span>
+        </p>
         <h2 id="question-text"></h2>
         <div class="question-divider">✧</div>
         <p class="select-guide">正しいと思う答えを選んでね</p>
@@ -129,9 +167,11 @@
         <div class="result-icon">👑</div>
         <p class="eyebrow">YOUR MAGIC RESULT</p>
         <h1>冒険の結果</h1>
+        <p id="result-level" class="result-level"></p>
       </div>
 
       <div class="result-card">
+
         <p class="result-label">YOUR SCORE</p>
 
         <div class="result-score">
@@ -144,13 +184,18 @@
         <p class="rank-label">あなたの魔法ランク</p>
         <h2 id="rank-title"></h2>
         <p id="rank-message"></p>
+
       </div>
 
       <div class="result-decoration">✦　✧　✦</div>
 
       <button id="retry-btn" class="gold-btn">
-        <span>もう一度冒険する</span>
+        <span>もう一度挑戦する</span>
         <span class="btn-arrow">↻</span>
+      </button>
+
+      <button id="home-btn" class="sub-btn">
+        難易度選択に戻る
       </button>
 
       <p class="bottom-note">MAGIC NEVER ENDS</p>
