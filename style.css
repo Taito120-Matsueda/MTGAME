@@ -4,7 +4,6 @@
 :root {
   --navy: #080f2b;
   --navy-light: #111d43;
-  --card: rgba(24, 39, 79, 0.82);
   --gold: #e9c77d;
   --gold-light: #ffe9b0;
   --white: #f8f6f0;
@@ -141,25 +140,25 @@ button {
   }
 }
 
-/* START */
+/* スタート画面 */
 
 .hero {
   text-align: center;
   position: relative;
-  padding: 15px 0 8px;
+  padding: 8px 0 5px;
 }
 
 .hero-stars {
   color: var(--gold-light);
   font-size: 19px;
   letter-spacing: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .castle-art {
   position: relative;
   width: 100%;
-  height: 175px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,7 +176,7 @@ button {
 }
 
 .castle-emoji {
-  font-size: 115px;
+  font-size: 105px;
   position: relative;
   filter: drop-shadow(0 0 12px rgba(255, 215, 130, .5));
   animation: castle-float 4s ease-in-out infinite;
@@ -192,12 +191,11 @@ button {
   color: var(--gold);
   font-size: 9px;
   letter-spacing: 5px;
-  margin-top: 2px;
 }
 
 .welcome {
   text-align: center;
-  padding: 25px 0 22px;
+  padding: 19px 0 20px;
 }
 
 .eyebrow {
@@ -208,44 +206,139 @@ button {
 }
 
 .welcome h1 {
-  font-size: 29px;
-  line-height: 1.65;
+  font-size: 27px;
+  line-height: 1.6;
   letter-spacing: 2px;
-  margin: 13px 0;
+  margin: 10px 0;
   font-weight: 700;
 }
 
 .welcome-description {
   color: var(--muted);
-  font-size: 13px;
-  line-height: 2.1;
+  font-size: 12px;
+  line-height: 1.9;
 }
 
-.start-info {
-  display: flex;
-  justify-content: center;
-  gap: 9px;
-  margin: 3px 0 25px;
+.difficulty-heading {
+  text-align: center;
+  margin: 3px 0 15px;
 }
 
-.info-item {
-  flex: 1;
-  max-width: 120px;
-  border: 1px solid rgba(233, 199, 125, .25);
-  background: rgba(255, 255, 255, .035);
-  border-radius: 12px;
-  padding: 13px 3px;
+.difficulty-heading h2 {
+  font-size: 17px;
+  color: var(--gold-light);
+  margin: 8px 0 5px;
+}
+
+.difficulty-heading > p {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.difficulty-list {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 10px;
+}
+
+.difficulty-card {
+  width: 100%;
+  min-height: 79px;
+  display: flex;
   align-items: center;
-  color: #e7eaf4;
+  gap: 14px;
+  padding: 12px 15px;
+  border-radius: 13px;
+  text-align: left;
+  color: var(--white);
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(189,201,228,.2);
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.difficulty-card:active {
+  transform: scale(.98);
+}
+
+.difficulty-card.selected {
+  background: rgba(233,199,125,.12);
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 17px rgba(233,199,125,.15);
+}
+
+.level-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background: rgba(255,255,255,.07);
+  flex-shrink: 0;
+}
+
+.beginner .level-icon {
+  background: rgba(101,201,149,.12);
+}
+
+.intermediate .level-icon {
+  background: rgba(233,199,125,.12);
+}
+
+.advanced .level-icon {
+  background: rgba(212,168,255,.12);
+}
+
+.level-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.level-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.level-en {
+  color: var(--gold);
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.level-description {
+  color: var(--muted);
   font-size: 10px;
 }
 
-.info-icon {
+.level-arrow {
+  font-size: 27px;
   color: var(--gold);
-  font-size: 19px;
+}
+
+.beginner.selected {
+  border-color: #65c995;
+  box-shadow: 0 0 15px rgba(101,201,149,.18);
+}
+
+.intermediate.selected {
+  border-color: #e9c77d;
+}
+
+.advanced.selected {
+  border-color: #d4a8ff;
+  box-shadow: 0 0 15px rgba(212,168,255,.18);
+}
+
+.level-guide {
+  text-align: center;
+  font-size: 10px;
+  color: var(--gold-light);
+  margin: 14px 0;
+  min-height: 16px;
 }
 
 .gold-btn {
@@ -263,14 +356,19 @@ button {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  box-shadow: 0 5px 25px rgba(216, 176, 100, .17);
-  transition: transform .2s, filter .2s;
+  box-shadow: 0 5px 25px rgba(216,176,100,.17);
+  transition: .2s;
   cursor: pointer;
 }
 
-.gold-btn:active {
+.gold-btn:active:not(:disabled) {
   transform: scale(.97);
-  filter: brightness(1.08);
+}
+
+.gold-btn:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 .btn-arrow {
@@ -281,11 +379,11 @@ button {
   text-align: center;
   font-size: 8px;
   letter-spacing: 2px;
-  color: rgba(233, 199, 125, .6);
-  margin-top: 22px;
+  color: rgba(233,199,125,.6);
+  margin-top: 20px;
 }
 
-/* QUIZ */
+/* クイズ画面 */
 
 .quiz-heading {
   display: flex;
@@ -307,6 +405,12 @@ button {
 .count-divider {
   color: #65718e;
   margin: 0 4px;
+}
+
+.current-level {
+  font-size: 11px;
+  color: var(--gold-light);
+  margin-top: 6px;
 }
 
 .progress-info {
@@ -332,7 +436,7 @@ button {
 .progress-fill {
   height: 100%;
   width: 20%;
-  background: linear-gradient(90deg, #c49b53, #ffe8a9);
+  background: linear-gradient(90deg,#c49b53,#ffe8a9);
   border-radius: 10px;
   transition: width .4s ease;
 }
@@ -345,8 +449,8 @@ button {
 }
 
 .question-card {
-  border: 1px solid rgba(233, 199, 125, .25);
-  background: linear-gradient(145deg, rgba(39, 57, 103, .8), rgba(17, 29, 65, .85));
+  border: 1px solid rgba(233,199,125,.25);
+  background: linear-gradient(145deg,rgba(39,57,103,.8),rgba(17,29,65,.85));
   border-radius: 17px;
   padding: 24px 19px;
   text-align: center;
@@ -392,12 +496,11 @@ button {
   text-align: left;
   color: #f5f5fa;
   background: rgba(255,255,255,.045);
-  border: 1px solid rgba(189, 201, 228, .2);
+  border: 1px solid rgba(189,201,228,.2);
   border-radius: 12px;
   font-size: 13px;
   line-height: 1.6;
   cursor: pointer;
-  transition: .2s;
 }
 
 .choice-number {
@@ -407,23 +510,18 @@ button {
   flex-shrink: 0;
 }
 
-.choice-btn:active:not(:disabled) {
-  background: rgba(233,199,125,.12);
-  border-color: var(--gold);
-}
-
 .choice-btn:disabled {
   cursor: default;
 }
 
 .choice-btn.correct {
-  background: rgba(65, 166, 125, .16);
+  background: rgba(65,166,125,.16);
   border-color: #78d5ad;
   color: #b7f4d7;
 }
 
 .choice-btn.wrong {
-  background: rgba(205, 88, 93, .15);
+  background: rgba(205,88,93,.15);
   border-color: #df9292;
   color: #ffc2c2;
 }
@@ -464,7 +562,7 @@ button {
   margin-top: 18px;
 }
 
-/* RESULT */
+/* 結果画面 */
 
 .result-hero {
   text-align: center;
@@ -490,9 +588,19 @@ button {
   letter-spacing: 3px;
 }
 
+.result-level {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 17px;
+  border: 1px solid rgba(233,199,125,.4);
+  border-radius: 30px;
+  color: var(--gold-light);
+  font-size: 11px;
+}
+
 .result-card {
   border: 1px solid rgba(233,199,125,.45);
-  background: linear-gradient(145deg, rgba(42,58,103,.8), rgba(18,30,66,.9));
+  background: linear-gradient(145deg,rgba(42,58,103,.8),rgba(18,30,66,.9));
   border-radius: 18px;
   text-align: center;
   padding: 27px 20px;
@@ -529,9 +637,8 @@ button {
   color: var(--muted);
 }
 
-.rank-box h2,
 .result-card h2 {
-  font-size: 23px;
+  font-size: 22px;
   color: var(--gold-light);
   margin: 14px 0;
 }
@@ -547,6 +654,18 @@ button {
   color: var(--gold);
   margin: 23px 0;
   letter-spacing: 12px;
+}
+
+.sub-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border: 1px solid rgba(233,199,125,.35);
+  background: rgba(255,255,255,.04);
+  border-radius: 12px;
+  color: var(--gold-light);
+  font-size: 12px;
+  cursor: pointer;
 }
 
 .app-footer {
@@ -583,15 +702,15 @@ button {
   }
 
   .castle-art {
-    height: 150px;
+    height: 125px;
   }
 
   .castle-emoji {
-    font-size: 95px;
+    font-size: 90px;
   }
 
   .welcome h1 {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .question-card h2 {
